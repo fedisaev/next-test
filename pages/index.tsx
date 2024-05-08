@@ -4,20 +4,17 @@ import Paragraph from "../components/Paragraph/Paragraph";
 import Tag from "../components/Tag/Tag";
 import Rating from "../components/Rating/Rating";
 import {ReactElement, useState} from "react";
+import {withLayout} from "../layout/Layout";
 
-export default function Home(): ReactElement {
+function Home(): ReactElement {
 
     const [rating, setRating] = useState(4);
 
     return (
         <>
             <HeadTag tag='h1'>Text</HeadTag>
-            <MyButton appearance='primary' arrow='right'>
-                Primary
-            </MyButton>
-            <MyButton appearance='ghost' arrow='down'>
-                Ghost
-            </MyButton>
+            <MyButton appearance='primary' arrow='right'>Primary</MyButton>
+            <MyButton appearance='ghost' arrow='down'>Ghost</MyButton>
             <Paragraph size='s'>Small</Paragraph>
             <Paragraph>Middle</Paragraph>
             <Paragraph size='l'>Big</Paragraph>
@@ -30,3 +27,5 @@ export default function Home(): ReactElement {
         </>
     )
 }
+
+export default withLayout(Home);
