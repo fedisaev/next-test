@@ -3,9 +3,9 @@ import MyButton from "../components/MyButton/MyButton";
 import Paragraph from "../components/Paragraph/Paragraph";
 import Tag from "../components/Tag/Tag";
 import Rating from "../components/Rating/Rating";
-import {useState} from "react";
+import {ReactElement, useState} from "react";
 
-export default function Home(): JSX.Element {
+export default function Home(): ReactElement {
 
     const [rating, setRating] = useState(4);
 

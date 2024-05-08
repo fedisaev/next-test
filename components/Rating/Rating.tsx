@@ -1,18 +1,18 @@
 import {RatingProps} from "./Rating.props";
 import styles from './Rating.module.css';
 import classNames from 'classnames';
-import {JSX, useEffect, useState, KeyboardEvent} from "react";
+import {useEffect, useState, KeyboardEvent, ReactElement} from "react";
 
-function Rating({rating, setRating, isEditable = false, ...props}: RatingProps) {
+function Rating({rating, setRating, isEditable = false, ...props}: RatingProps): ReactElement {
 
-    const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>))
+    const [ratingArray, setRatingArray] = useState<ReactElement[]>(new Array(5).fill(<></>))
 
     useEffect(() => {
         constructRating(rating);
     }, [rating])
 
     const constructRating = (currentRating: number) => {
-        const updateRating = ratingArray.map((r: JSX.Element, i: number) => {
+        const updateRating = ratingArray.map((r: ReactElement, i: number) => {
             return (
                 <span className={classNames(styles.star, {
                     [styles.filled]: i < currentRating,
@@ -33,17 +33,23 @@ function Rating({rating, setRating, isEditable = false, ...props}: RatingProps) 
     }
 
     const changeDisplay = (i: number) => {
-        if (!isEditable) return;
+        if (!isEditable) {
+            return;
+        }
         constructRating(i);
     }
 
     const onClick = (i: number) => {
-        if (!isEditable || !setRating) return;
+        if (!isEditable || !setRating) {
+            return
+        }
         setRating(i);
     }
 
     const handleSpace = (i: number, e: KeyboardEvent<HTMLImageElement>) => {
-        if (e.code !== 'Space' || !setRating) return;
+        if (e.code !== 'Space' || !setRating) {
+            return
+        }
         setRating(i);
     }
 

@@ -1,7 +1,8 @@
 import {HeadTagProps} from "./HeadTag.props";
 import styles from './HeadTag.module.css';
+import {ReactElement} from "react";
 
-function HeadTag({tag, children}: HeadTagProps) {
+function HeadTag({tag, children}: HeadTagProps): ReactElement {
     switch (tag) {
         case 'h1':
             return <h1 className={styles.h1}>{children}</h1>;

@@ -1,8 +1,9 @@
 import {TagProps} from "./Tag.props";
 import classNames from 'classnames';
 import styles from './Tag.module.css';
+import {ReactElement} from "react";
 
-function Tag({children, className, href, size = 's', color = 'ghost', ...props}: TagProps) {
+function Tag({children, className, href, size = 's', color = 'ghost', ...props}: TagProps): ReactElement {
     return (
         <div className={classNames(styles.tag, className, {
             [styles.s]: size === 's',
