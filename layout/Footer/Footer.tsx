@@ -2,12 +2,15 @@ import {ReactElement} from "react";
 import {FooterProps} from "./Footer.props";
 import styles from './Footer.module.css';
 import classNames from 'classnames';
+import {format} from 'date-fns';
 
-function Footer({...props}: FooterProps): ReactElement {
+function Footer({className, ...props}: FooterProps): ReactElement {
     return (
-        <div {...props}>
-            Footer
-        </div>
+        <footer className={classNames(className, styles.footer)} {...props}>
+            <div>OwlTop © 2020 - {format(new Date(), 'yyyy')} Все права защищены</div>
+            <a href="#">Пользовательское соглашение</a>
+            <a href="#">Политика конфиденциальности</a>
+        </footer>
     )
 }
 

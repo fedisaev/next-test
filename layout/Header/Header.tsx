@@ -5,9 +5,9 @@ import classNames from 'classnames';
 
 function Header({...props}: HeaderProps): ReactElement {
     return (
-        <div {...props}>
+        <header {...props}>
             Header
-        </div>
+        </header>
     )
 }
 
